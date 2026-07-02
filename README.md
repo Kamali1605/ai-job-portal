@@ -3,7 +3,7 @@
 An AI-powered recruitment platform that helps candidates get discovered faster and recruiters hire smarter using AI-driven insights.
 
 **Live Demo:** [https://your-vercel-app.vercel.app](https://your-vercel-app.vercel.app)  
-**Backend API:** [https://your-railway-app.up.railway.app](https://your-railway-app.up.railway.app)
+**Backend API:** [https://ai-job-portal-1-mdi9.onrender.com](https://ai-job-portal-1-mdi9.onrender.com)
 
 ---
 
