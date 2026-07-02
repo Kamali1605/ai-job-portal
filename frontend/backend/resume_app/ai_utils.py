@@ -1,7 +1,10 @@
 from openai import OpenAI
 from django.conf import settings
 
-client = OpenAI(api_key=settings.OPENAI_API_KEY)
+
+def get_client():
+    """Create OpenAI client lazily so it doesn't crash at import time."""
+    return OpenAI(api_key=settings.OPENAI_API_KEY)
 
 
 def generate_resume_feedback(resume_text, job_description):
@@ -25,6 +28,7 @@ Give:
 Return in JSON format.
 """
 
+    client = get_client()
     response = client.chat.completions.create(
         model="gpt-4.1-mini",
         messages=[{"role": "user", "content": prompt}],
