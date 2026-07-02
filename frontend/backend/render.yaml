@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: ai-job-portal-backend
+    runtime: python
+    rootDir: frontend/backend
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
+    startCommand: gunicorn core.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: "ai-job-portal-backend.onrender.com"
+      - key: CORS_ALLOW_ALL_ORIGINS
+        value: "False"
+      - key: CORS_ALLOWED_ORIGINS
+        value: "https://ai-job-portal-frontend.vercel.app"
+      - key: OPENAI_API_KEY
+        sync: false
+    plan: free
